@@ -1,0 +1,49 @@
+package br.com.sisloc.dao;
+
+import br.com.sisloc.control.Conexao;
+import br.com.sisloc.model.Item;
+import br.com.sisloc.model.Locacao;
+import java.sql.ResultSet;
+
+/**
+ *
+ * @author Tiago
+ */
+public class GerenciaLocacao {
+
+    private String sql;
+    private ResultSet res;
+    private Conexao conexao = new Conexao();
+
+    public ResultSet carregaId() {
+        sql = "SELECT count(*) as quantidade FROM locacao";
+        res = conexao.executarConsulta(sql);
+        return res;
+    }
+
+    public void gravaLocacao(Locacao locacao, Item item) {
+        sql = "INSERT INTO locacao VALUES ('" + locacao.getId() + "', '" + locacao.getIdCliente() + "', '" + locacao.getIdFuncResp() + "','" + locacao.getDataInicio() + "','" + locacao.getDataFim() + "')";
+        conexao.executarSql(sql);
+
+        sql = "INSERT INTO item VALUES ('" + item.getIdLocacao() + "','" + item.getIdProduto() + "','" + item.getQuantidade() + "')";
+        conexao.executarSql(sql);
+    }
+
+    public void inserirItens(Item item) {
+        sql = "INSERT INTO item VALUES ('" + item.getIdLocacao() + "','" + item.getIdProduto() + "','" + item.getQuantidade() + "')";
+        conexao.executarSql(sql);
+    }
+
+    public ResultSet consultaLocacao(String id) {
+        sql = "SELECT * FROM LOCACAO WHERE idlocacao like '" + id + "'";
+        res = conexao.executarConsulta(sql);
+        return res;
+    }
+    
+    public ResultSet carregaItens(String id){
+        sql = "SELECT * FROM item where locacao_idlocacao like '"+id+"'";
+        res = conexao.executarConsulta(sql);
+        return res;
+    }
+
+}

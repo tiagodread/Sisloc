@@ -1,0 +1,60 @@
+package br.com.sisloc.model;
+
+/**
+ *
+ * @author Tiago
+ */
+public class Item {
+
+    private int idLocacao,idCliente,quantidade;
+
+    public Item(int idLocacao, int idCliente, int quantidade) {
+        this.idLocacao = idLocacao;
+        this.idCliente = idCliente;
+        this.quantidade = quantidade;
+    }
+
+    /**
+     * @return the idLocacao
+     */
+    public int getIdLocacao() {
+        return idLocacao;
+    }
+
+    /**
+     * @param idLocacao the idLocacao to set
+     */
+    public void setIdLocacao(int idLocacao) {
+        this.idLocacao = idLocacao;
+    }
+
+    /**
+     * @return the idCliente
+     */
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    /**
+     * @param idCliente the idCliente to set
+     */
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    /**
+     * @return the quantidade
+     */
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    /**
+     * @param quantidade the quantidade to set
+     */
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
+}

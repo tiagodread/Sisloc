@@ -1,0 +1,38 @@
+package br.com.sisloc.dao;
+
+import br.com.sisloc.control.Conexao;
+import br.com.sisloc.model.Funcionario;
+import java.sql.ResultSet;
+
+/**
+ *
+ * @author Tiago
+ */
+public class GerenciaFuncionario {
+
+    private Conexao conexao = new Conexao();
+    private String sql;
+
+    public void cadastraFuncionario(Funcionario funcionario) {
+        sql = "INSERT INTO funcionario VALUES ('" + funcionario.getMatricula() + "','" + funcionario.getCpf() + "',"
+                + "'" + funcionario.getNome() + "','" + funcionario.getLogradouro() + "','" + funcionario.getNumero() + "',"
+                + "'" + funcionario.getBairro() + "','" + funcionario.getCidade() + "','" + funcionario.getUf() + "',"
+                + "'" + funcionario.getTelefone() + "','" + funcionario.getCelular() + "','" + funcionario.getEmail() + "',"
+                + "'" + funcionario.getCargo() + "','" + funcionario.getSalario() + "','" + funcionario.getLogin() + "',"
+                + "'" + funcionario.getSenha() + "')";
+        conexao.executarSql(sql);
+    }
+
+    public ResultSet consultaFuncionarioCPF(String cpf) {
+        sql = "SELECT cpf FROM funcionario WHERE cpf = '" + cpf + "'";
+        ResultSet res = conexao.executarConsulta(sql);
+        return res;
+    }
+
+    public ResultSet consultaFuncionarioMatricula(int matricula) {
+        sql = "SELECT matricula FROM funcionario WHERE matricula = '" + matricula + "'";
+        ResultSet res = conexao.executarConsulta(sql);
+        return res;
+    }
+
+}

@@ -1,0 +1,98 @@
+package br.com.sisloc.model;
+
+import java.util.Date;
+
+/**
+ *
+ * @author Tiago
+ */
+public class Locacao {
+
+    private int id,idFuncResp,idCliente;
+    private Date dataInicio,dataFim;
+    private Item item;
+    public Locacao() {
+    }
+
+    public Locacao(int id, int idFuncResp, int idCliente, Date dataInicio, Date dataFim) {
+        this.id = id;
+        this.idFuncResp = idFuncResp;
+        this.idCliente = idCliente;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the idFuncResp
+     */
+    public int getIdFuncResp() {
+        return idFuncResp;
+    }
+
+    /**
+     * @param idFuncResp the idFuncResp to set
+     */
+    public void setIdFuncResp(int idFuncResp) {
+        this.idFuncResp = idFuncResp;
+    }
+
+    /**
+     * @return the idCliente
+     */
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    /**
+     * @param idCliente the idCliente to set
+     */
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    /**
+     * @return the dataInicio
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    /**
+     * @param dataInicio the dataInicio to set
+     */
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    /**
+     * @return the dataFim
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    /**
+     * @param dataFim the dataFim to set
+     */
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
+    }
+    
+    
+    
+}

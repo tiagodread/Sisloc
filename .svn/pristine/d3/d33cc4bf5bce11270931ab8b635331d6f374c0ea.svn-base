@@ -1,0 +1,153 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.sisloc.view;
+
+/**
+ *
+ * @author Paulo
+ */
+public class RelatorioLocacao extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form RelatorioLocacao
+     */
+    public RelatorioLocacao() {
+        initComponents();
+    }
+
+    public static void main(String args[]){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RelatorioLocacao().setVisible(true);
+                
+            }
+        });
+    }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lbllocacao = new javax.swing.JLabel();
+        cbtiporelatorio = new javax.swing.JComboBox();
+        lblano = new javax.swing.JLabel();
+        cbano = new javax.swing.JComboBox();
+        cbmes = new javax.swing.JComboBox();
+        lblmes = new javax.swing.JLabel();
+        btgerarrelatorio = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btlimpar = new javax.swing.JButton();
+        btpesquisar = new javax.swing.JButton();
+
+        setClosable(true);
+        setMaximizable(true);
+        setTitle("Relatório de Locação");
+        setPreferredSize(new java.awt.Dimension(560, 340));
+
+        lbllocacao.setText("Tipo de relatorio que deseja:");
+
+        cbtiporelatorio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nenhum", "Locação por mes", "Locação por semana", "Locação por semestre", "Locação por ano" }));
+
+        lblano.setText("Escolha o ano:");
+
+        cbano.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nenhum", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
+
+        cbmes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nenhum", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembo" }));
+
+        lblmes.setText("Escolha o mês:");
+
+        btgerarrelatorio.setText("Gerar Relatorio");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Tipo do produto", "Data de inicio", "Data de termino"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btlimpar.setText("Limpar");
+
+        btpesquisar.setText("Pesquisar");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblano)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbano, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(347, 347, 347))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbllocacao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbtiporelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(lblmes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbmes, 0, 161, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btpesquisar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btgerarrelatorio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btlimpar)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbllocacao)
+                    .addComponent(cbtiporelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblmes)
+                    .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblano)
+                    .addComponent(cbano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btgerarrelatorio)
+                    .addComponent(btlimpar)
+                    .addComponent(btpesquisar))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btgerarrelatorio;
+    private javax.swing.JButton btlimpar;
+    private javax.swing.JButton btpesquisar;
+    private javax.swing.JComboBox cbano;
+    private javax.swing.JComboBox cbmes;
+    private javax.swing.JComboBox cbtiporelatorio;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblano;
+    private javax.swing.JLabel lbllocacao;
+    private javax.swing.JLabel lblmes;
+    // End of variables declaration//GEN-END:variables
+}

@@ -1,0 +1,38 @@
+package br.com.sisloc.dao;
+
+import br.com.sisloc.control.Conexao;
+import br.com.sisloc.model.Produto;
+import java.sql.ResultSet;
+
+/**
+ *
+ * @author Tiago
+ */
+public class GerenciaProduto {
+
+    private String sql;
+    private final Conexao conexao = new Conexao();
+    private ResultSet res;
+
+    public GerenciaProduto() {
+    }
+
+    public void cadastraProduto(Produto produto) {
+        System.out.println(produto.getCnpjFornecedor());
+        int alocado;
+        if (produto.isAlocado() == true) {
+            alocado = 1;
+        } else {
+            alocado = 0;
+        }
+        sql = "INSERT INTO produto VALUES (null,'" + produto.getNome() + "','" + produto.getQuantidade() + "','" + produto.getValorUnitario() + "',"
+                + "'" + produto.getDescricao() + "','" + alocado + "','" + produto.getCnpjFornecedor() + "')";
+        conexao.executarSql(sql);
+    }
+
+    public ResultSet getTodosProdutos(String nomeProduto) {
+        sql = "select * from produto where nome like '%" + nomeProduto + "%'";
+        res = conexao.executarConsulta(sql);
+        return res;
+    }
+}

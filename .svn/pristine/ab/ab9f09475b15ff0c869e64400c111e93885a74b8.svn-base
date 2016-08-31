@@ -1,0 +1,63 @@
+package br.com.sisloc.dao;
+
+import br.com.sisloc.control.Conexao;
+import br.com.sisloc.model.Cliente;
+import java.sql.ResultSet;
+
+/**
+ *
+ * @author Tiago
+ */
+public class GerenciaCliente {
+
+    private Conexao conexao = new Conexao();
+    private String sql;
+    private ResultSet rescpf, rescnpj;
+
+    public void cadastraCliente(Cliente cliente) {
+        sql = "INSERT INTO cliente VALUES (null, '" + cliente.getCnpj() + "','" + cliente.getCpf() + "','" + cliente.getNome() + "',"
+                + "'" + cliente.getLogradouro() + "','" + cliente.getNumero() + "','" + cliente.getBairro() + "','" + cliente.getCidade() + "',"
+                + "'" + cliente.getUf() + "','" + cliente.getTelefone() + "','" + cliente.getCelular() + "','" + cliente.getEmail() + "',"
+                + "'" + cliente.getTipoCliente() + "')";
+        conexao.executarSql(sql);
+    }
+
+    public ResultSet consultaClienteCpf(String cpf) {
+        sql = "select nome,logradouro,numero,bairro,cidade,uf,telefone,celular,email,idcliente from cliente where cpf like '" + cpf + "'";//monta a consulta SQL buscando os dados da caixa de texto txtConsulta
+        rescpf = conexao.executarConsulta(sql);
+        return rescpf;
+    }
+
+    public ResultSet consultaClienteCnpj(String cnpj) {
+        System.out.println(cnpj);
+        sql = "select nome,logradouro,numero,bairro,cidade,uf,telefone,celular,email,idcliente from cliente where cnpj like '" + cnpj + "'";//monta a consulta SQL buscando os dados da caixa de texto txtConsulta
+        rescnpj = conexao.executarConsulta(sql);
+        // System.out.println(rescnpj.toString());
+        return rescnpj;
+    }
+
+    public void alterarCliente(Cliente cliente) {
+        if (cliente.getCpf() == null) {
+            sql = "update cliente set nome='" + cliente.getNome() + "',logradouro='" + cliente.getLogradouro() + "',numero='" + cliente.getNumero() + "',bairro='" + cliente.getBairro() + "',cidade='" + cliente.getCidade() + "',uf='" + cliente.getUf() + "',telefone='" + cliente.getTelefone() + "',celular='" + cliente.getCelular() + "',email='" + cliente.getEmail() + "' where cnpj='" + cliente.getCnpj() + "'";
+            conexao.executarSql(sql);
+        }
+
+        if (cliente.getCnpj() == null) {
+            sql = "update cliente set nome='" + cliente.getNome() + "',logradouro='" + cliente.getLogradouro() + "',numero='" + cliente.getNumero() + "',bairro='" + cliente.getBairro() + "',cidade='" + cliente.getCidade() + "',uf='" + cliente.getUf() + "',telefone='" + cliente.getTelefone() + "',celular='" + cliente.getCelular() + "',email='" + cliente.getEmail() + "' where cpf='" + cliente.getCpf() + "'";
+            conexao.executarSql(sql);
+        }
+    }
+
+    public void excluiCliente(String id, String tipo) {
+        if (tipo.equalsIgnoreCase("cnpj")) {
+            sql = "delete from cliente where cnpj = " + id;
+            conexao.executarSql(sql);
+        }
+
+        if (tipo.equalsIgnoreCase("cpf")) {
+            sql = "delete from cliente where cpf = " + id;
+            conexao.executarSql(sql);
+        }
+    }
+
+}

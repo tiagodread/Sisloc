@@ -1,0 +1,31 @@
+package br.com.sisloc.dao;
+
+import br.com.sisloc.control.Conexao;
+import br.com.sisloc.model.Locacao;
+import java.sql.ResultSet;
+
+/**
+ *
+ * @author Tiago
+ */
+public class GerenciaLocacao {
+
+    private String sql;
+    private ResultSet res;
+    private Conexao conexao = new Conexao();
+    
+    public ResultSet carregaId(){
+        sql = "SELECT count(*) as quantidade FROM locacao";
+        res = conexao.executarConsulta(sql);
+        return res;
+    }
+    
+    public void gravaLocacao(Locacao locacao){
+        sql = "INSERT INTO locacao VAUES (null, '"+locacao.getIdCliente()+"', '"+locacao.getIdFuncResp()+"','"+locacao.getDataInicio()+"','"+locacao.getDataFim()+"')";
+        conexao.executarSql(sql);
+        
+      //  sql = "INSERT INTO item VALUES ()"
+    }
+    
+    
+}
